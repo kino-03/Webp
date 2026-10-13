@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>별 문자 출력하기</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+        }
+        hr {
+            border: 1px solid lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h3>별 문자 출력하기</h3>
+    <hr>
+
+    <script>
+        function printStar(n) {
+            for (let i = 1; i <= n; i++) {
+                for (let j = 1; j <= i; j++) {
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+        }
+
+        let input = prompt("정수를 입력하세요");
+        let num = Number(input);
+
+        if (input === null || input.trim() === "" ||
+            !Number.isInteger(num) || num <= 0) {
+            document.write("입력 오류 입니다.");
+        } else {
+            printStar(num);
+        }
+    </script>
+</body>
+</html>
