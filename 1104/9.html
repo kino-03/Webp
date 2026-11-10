@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>라면을 끓이는 순서</title>
+</head>
+<body>
+    <h3>라면을 끓이는 순서</h3>
+    <hr>
+
+    <ol type="A" style="background-color:yellowgreen">
+        <li>물을 끓인다.</li>
+    </ol>
+
+    <script>
+        let ol = document.getElementsByTagName("ol")[0];
+
+        ol.onclick = function() {
+            let text = prompt("라면을 끓이는 순서를 입력하라");
+
+            if (text != null && text.trim() != "") {
+                let li = document.createElement("li");
+                li.innerHTML = text;
+                ol.appendChild(li);
+            }
+        };
+    </script>
+</body>
+</html>
