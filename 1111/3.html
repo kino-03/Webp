@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>계산기 만들기</title>
+
+    <script>
+        function calculate(e) {
+            if (e.key == "Enter") {
+                let expression = document.getElementById("expression").value;
+                let result = eval(expression);
+
+                document.getElementById("result").value = result;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h3>계산기 만들기</h3>
+    <hr>
+
+    <p>수식을 입력하고 Enter를 입력하세요.</p>
+
+    식 <input type="text" id="expression" onkeydown="calculate(event)">
+
+    <br>
+
+    값 <input type="text" id="result" readonly>
+</body>
+</html>

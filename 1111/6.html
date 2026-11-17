@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>마우스 활용 이미지 확대/축소</title>
+
+    <script>
+        function zoomIn() {
+            let img = document.getElementById("flower");
+            img.style.width = "150%";
+        }
+
+        function zoomOut() {
+            let img = document.getElementById("flower");
+            img.style.width = "100%";
+        }
+    </script>
+</head>
+
+<body>
+    <h3>마우스 활용 이미지 확대/축소</h3>
+    <hr>
+
+    <p>이미지 위에 마우스 커서를 올리면 이미지가 확대됩니다.</p>
+
+    <img id="flower" src="flower.jpg"
+         width="200"
+         onmouseover="zoomIn()"
+         onmouseout="zoomOut()">
+</body>
+</html>

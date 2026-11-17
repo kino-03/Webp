@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>onmouseover와 onmouseout</title>
+<style>
+    #info {
+        position: absolute;
+        visibility: hidden;
+        border: 1px solid gray;
+        background-color: white;
+        padding: 10px;
+        width: 280px;
+    }
+</style>
+<script>
+    window.onload = function() {
+        let items = document.getElementsByTagName("li");
+        let info = document.getElementById("info");
+
+        let descriptions = [
+            "빨간 자전거를 타고 서울, 대전, 대구, 부산을 거쳐 목포까지 달린다.",
+            "다양한 분야의 책을 읽으며 지식을 쌓는다.",
+            "수영, 자전거, 달리기를 꾸준히 연습하여 철인 3종 경기를 준비한다.",
+            "자바스크립트를 공부하고 다양한 프로그램을 만들어 본다."
+        ];
+
+        for (let i = 0; i < items.length; i++) {
+            items[i].onmouseover = function(e) {
+                info.innerHTML = descriptions[i];
+                info.style.left = e.clientX + "px";
+                info.style.top = e.clientY + "px";
+                info.style.visibility = "visible";
+            };
+
+            items[i].onmouseout = function() {
+                info.style.visibility = "hidden";
+            };
+        }
+    };
+</script>
+</head>
+<body>
+<h3>아이템에 마우스를 올리면 설명 출력</h3>
+<hr>
+<p>여름 방학 때 하고 싶은 것들</p>
+
+<ul>
+    <li>자전거로 대한민국 일주</li>
+    <li>책 100권 읽기</li>
+    <li>철인 3종 경기 준비</li>
+    <li>자바스크립트 정인천을 거쳐 달린다</li>
+</ul>
+
+<div id="info"></div>
+</body>
+</html>

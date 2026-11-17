@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>계산기 만들기</title>
+<style>
+    button {
+        width: 60px;
+        height: 30px;
+        margin: 3px;
+    }
+
+    input {
+        width: 340px;
+        height: 25px;
+        margin-bottom: 10px;
+    }
+</style>
+<script>
+    function add(value) {
+        document.getElementById("display").value += value;
+    }
+
+    function calculate() {
+        let display = document.getElementById("display");
+        display.value = eval(display.value);
+    }
+
+    function back() {
+        let display = document.getElementById("display");
+        display.value = display.value.slice(0, -1);
+    }
+
+    function clearDisplay() {
+        document.getElementById("display").value = "0";
+    }
+</script>
+</head>
+<body>
+<h3>계산기 만들기</h3>
+<hr>
+
+<input type="text" id="display" value="0" readonly>
+<br>
+
+<button onclick="back()">BACK</button>
+<button onclick="clearDisplay()">CE</button>
+<button onclick="clearDisplay()">C</button>
+<button onclick="calculate()">=</button>
+<br>
+
+<button onclick="add('7')">7</button>
+<button onclick="add('8')">8</button>
+<button onclick="add('9')">9</button>
+<button onclick="add('/')">/</button>
+<br>
+
+<button onclick="add('4')">4</button>
+<button onclick="add('5')">5</button>
+<button onclick="add('6')">6</button>
+<button onclick="add('*')">*</button>
+<br>
+
+<button onclick="add('1')">1</button>
+<button onclick="add('2')">2</button>
+<button onclick="add('3')">3</button>
+<button onclick="add('-')">-</button>
+<br>
+
+<button onclick="add('0')">0</button>
+<button onclick="add('+')">+</button>
+<button>NONE</button>
+<button>NONE</button>
+
+</body>
+</html>
