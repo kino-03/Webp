@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>환영</title>
+<script>
+function printWelcome() {
+    let win = window.open("", "", "width=200,height=80,left=500,top=400");
+    win.document.write("접속 감사합니다!<br>");
+    win.document.write("열심히 하세요!");
+    win.document.title = "환영";
+    win.document.body.style.backgroundColor = "yellowgreen";
+    win.document.close();
+}
+</script>
+</head>
+<body onload="printWelcome()" style="background-color: yellowgreen;">
+<p>
+접속 감사합니다!<br>
+열심히 하세요!
+</p>
+</body>
+</html>

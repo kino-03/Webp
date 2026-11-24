@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>산수를 풀어 봅시다</title>
+</head>
+
+<body>
+
+<h3>산수 문제를 풀어 봅시다.</h3>
+<p>수식을 계산하여 답을 입력하고 채점 버튼을 누르세요.</p>
+<hr>
+
+<div>
+    <span id="q1">5*6</span>
+    <input type="text" id="a1">
+</div>
+
+<div>
+    <span id="q2">7+5*3</span>
+    <input type="text" id="a2">
+</div>
+
+<div>
+    <span id="q3">23*2</span>
+    <input type="text" id="a3">
+</div>
+
+<div>
+    <span id="q4">35-7</span>
+    <input type="text" id="a4">
+</div>
+
+<button onclick="check()">채점</button>
+<span id="score">0</span>
+
+<script>
+function check() {
+    let answers = [30, 22, 46, 28];
+    let count = 0;
+
+    for (let i = 1; i <= 4; i++) {
+        let user = document.getElementById("a" + i).value;
+        let question = document.getElementById("q" + i);
+
+        if (user.trim() !== "" && Number(user) == answers[i - 1]) {
+            count++;
+            question.style.textDecoration = "none";
+        } else {
+            question.style.textDecoration = "line-through";
+        }
+    }
+
+    document.getElementById("score").innerHTML = count;
+}
+</script>
+
+</body>
+</html>

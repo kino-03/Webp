@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>산수를 풀어 봅시다</title>
+</head>
+
+<body onload="makeQuiz()">
+
+<h3>산수 문제를 풀어 봅시다.</h3>
+
+<p>
+자동으로 문제가 만들어집니다.
+답 입력 후 채점 버튼을 누르세요.
+다시 버튼을 누르면 새로운 문제가 출력됩니다.
+나누기 결과는 정수입니다.
+</p>
+
+<hr>
+
+<div id="quiz"></div>
+
+<button onclick="check()">채점</button>
+<span id="score">0</span>
+
+<button onclick="makeQuiz()">다시</button>
+
+<script>
+let answers = [];
+
+function makeQuiz() {
+    let quiz = document.getElementById("quiz");
+    let operators = ["+", "-", "*", "/"];
+
+    answers = [];
+    quiz.innerHTML = "";
+
+    for (let i = 0; i < 4; i++) {
+        let a = Math.floor(Math.random() * 20) + 1;
+        let b = Math.floor(Math.random() * 20) + 1;
+        let op = operators[Math.floor(Math.random() * 4)];
+
+        if (op == "/") {
+            a = a * b;
+        }
+
+        let answer;
+
+        if (op == "+") {
+            answer = a + b;
+        } else if (op == "-") {
+            answer = a - b;
+        } else if (op == "*") {
+            answer = a * b;
+        } else {
+            answer = a / b;
+        }
+
+        answers.push(answer);
+
+        quiz.innerHTML +=
+            "<div>" +
+            "<span id='q" + i + "'>" +
+            a + op + b +
+            "</span> " +
+            "<input type='text' id='a" + i + "'>" +
+            "</div>";
+    }
+
+    document.getElementById("score").innerHTML = 0;
+}
+
+function check() {
+    let count = 0;
+
+    for (let i = 0; i < 4; i++) {
+        let user = document.getElementById("a" + i).value;
+        let question = document.getElementById("q" + i);
+
+        if (user.trim() !== "" && Number(user) == answers[i]) {
+            count++;
+            question.style.textDecoration = "none";
+        } else {
+            question.style.textDecoration = "line-through";
+        }
+    }
+
+    document.getElementById("score").innerHTML = count;
+}
+</script>
+
+</body>
+</html>

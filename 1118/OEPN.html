@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>사랑의 눈 내리는 마을</title>
+
+<style>
+body {
+    background-image: url("media/snow.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.snow {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+let snow = [];
+
+for (let i = 0; i < 30; i++) {
+    let div = document.createElement("div");
+
+    div.className = "snow";
+    div.innerHTML = "*";
+
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight;
+    let speed = Math.random() * 3 + 1;
+
+    div.style.left = x + "px";
+    div.style.top = y + "px";
+
+    document.body.appendChild(div);
+
+    snow.push({
+        element: div,
+        x: x,
+        y: y,
+        speed: speed
+    });
+}
+
+setInterval(function() {
+    for (let i = 0; i < 30; i++) {
+        snow[i].y += snow[i].speed;
+
+        if (snow[i].y > window.innerHeight) {
+            snow[i].y = -20;
+            snow[i].x = Math.random() * window.innerWidth;
+            snow[i].element.style.left = snow[i].x + "px";
+        }
+
+        snow[i].element.style.top = snow[i].y + "px";
+    }
+}, 30);
+</script>
+
+</body>
+</html>
